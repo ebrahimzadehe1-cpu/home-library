@@ -399,3 +399,55 @@ button.hidden { display: none; }
   .book-list.list-view .book-item { flex-wrap: wrap; }
   .book-list.list-view .book-actions { width: 100%; }
 }
+.settings-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: white;
+  color: #667eea;
+  font-size: 1.3rem;
+  padding: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  z-index: 50;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.settings-btn:hover { background: white; transform: rotate(30deg); }
+.settings-btn.admin { background: #27ae60; color: white; }
+
+.admin-badge {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #27ae60;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  z-index: 50;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.hidden { display: none !important; }
+
+.read-only-notice {
+  background: #e8f4fd;
+  color: #2980b9;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  color: #999;
+  padding: 30px;
+  font-size: 0.9rem;
+}
