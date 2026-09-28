@@ -10,6 +10,7 @@
 </head>
 <body>
   <div class="container">
+    <button id="settingsBtn" class="settings-btn" title="تنظیمات">⚙️</button>
     <header>
       <h1>📚 کتابخانه خانگی</h1>
       <p class="subtitle">مدیریت امانت کتاب‌های شخصی</p>
@@ -97,7 +98,23 @@
   </div>
 
   <div id="toast" class="toast"></div>
+<!-- Modal تنظیمات مدیر -->
+<div id="adminModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>⚙️ تنظیمات مدیر</h3>
+    <p class="modal-book">برای فعال‌سازی حالت مدیریت، توکن GitHub را وارد کن. دوستان نیازی به این کار ندارند.</p>
+    <label>GitHub Personal Access Token</label>
+    <input type="password" id="tokenInput" placeholder="github_pat_...">
+    <div class="modal-actions">
+      <button id="saveToken">ذخیره</button>
+      <button id="clearToken" class="secondary">خروج از حالت مدیر</button>
+      <button id="cancelToken" class="secondary">انصراف</button>
+    </div>
+  </div>
+</div>
 
+<!-- دکمه تنظیمات بالای صفحه -->
+<button id="settingsBtn" class="settings-btn" title="تنظیمات">⚙️</button>
   <script src="app.js"></script>
 </body>
 </html>
