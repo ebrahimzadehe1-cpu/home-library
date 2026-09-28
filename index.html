@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#667eea">
+<title>کتابخانه خانگی</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 کتابخانه خانگی</h1>
+      <p class="subtitle">مدیریت امانت کتاب‌های شخصی</p>
+    </header>
+
+    <div class="stats">
+      <div class="stat"><span id="totalCount">0</span><small>کل</small></div>
+      <div class="stat"><span id="availableCount">0</span><small>موجود</small></div>
+      <div class="stat"><span id="borrowedCount">0</span><small>امانت</small></div>
+      <div class="stat warn"><span id="overdueCount">0</span><small>تأخیر</small></div>
+    </div>
+
+    <div class="card">
+      <h2>➕ افزودن کتاب جدید</h2>
+      <form id="addForm">
+        <div class="cover-uploader">
+          <div class="cover-preview" id="coverPreview">
+            <span class="cover-placeholder">📷<br><small>عکس جلد</small></span>
+          </div>
+          <div class="cover-buttons">
+            <label for="coverInput" class="file-btn">🖼️ انتخاب عکس</label>
+            <input type="file" id="coverInput" accept="image/*" hidden>
+            <button type="button" id="removeCover" class="secondary small hidden">❌ حذف عکس</button>
+          </div>
+        </div>
+        <div class="row">
+          <input type="text" id="title" placeholder="عنوان کتاب" required>
+          <input type="text" id="author" placeholder="نویسنده" required>
+        </div>
+        <div class="row">
+          <input type="text" id="genre" placeholder="ژانر (اختیاری)">
+          <button type="submit">افزودن</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <div class="list-header">
+        <h2>لیست کتاب‌ها</h2>
+        <input type="text" id="search" placeholder="🔍 جستجو...">
+      </div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">همه</button>
+        <button class="filter" data-filter="available">موجود</button>
+        <button class="filter" data-filter="borrowed">امانت</button>
+        <button class="filter" data-filter="overdue">تأخیر</button>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="list" title="لیست">☰</button>
+          <button class="view-btn" data-view="grid" title="گالری">▦</button>
+        </div>
+      </div>
+      <div id="bookList" class="book-list list-view"></div>
+    </div>
+
+    <div class="card">
+      <h2>⚙️ پشتیبان‌گیری</h2>
+      <div class="row">
+        <button id="exportBtn" class="secondary">📤 خروجی JSON</button>
+        <button id="importBtn" class="secondary">📥 ورودی JSON</button>
+        <input type="file" id="importFile" accept=".json" hidden>
+      </div>
+    </div>
+  </div>
+
+  <div id="borrowModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>📤 امانت دادن کتاب</h3>
+      <p id="borrowBookTitle" class="modal-book"></p>
+      <label>نام امانت‌گیرنده</label>
+      <input type="text" id="borrowerName" placeholder="مثلاً: علی رضایی">
+      <label>مهلت بازگشت (روز)</label>
+      <input type="number" id="borrowDays" value="14" min="1" max="365">
+      <div class="modal-actions">
+        <button id="confirmBorrow">تأیید</button>
+        <button id="cancelBorrow" class="secondary">انصراف</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="imageModal" class="modal hidden">
+    <div class="image-viewer">
+      <img id="viewerImage" src="" alt="cover">
+      <button id="closeViewer" class="viewer-close">✕</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
